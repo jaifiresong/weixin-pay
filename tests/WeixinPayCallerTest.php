@@ -10,6 +10,31 @@ use WeixinPay\PayCaller;
 
 class WeixinPayCallerTest extends TestCase
 {
+    public function testJsapiOrder()
+    {
+        //o1U7r6d35h6GH-Ca9freZPg-BsCM
+        $data = [
+            "mchid" => M2['mchid'],
+            "out_trade_no" => 'test' . date('YmdHis'),
+            "appid" => M2['appid'],
+            "description" => "Image形象店-深圳腾大-QQ公仔",
+            "notify_url" => "http://zhsz.hy5188.com/pay/notify",
+            "amount" => [
+                "total" => 1,
+                "currency" => "CNY"
+            ],
+            "payer" => [
+                "openid" => "o1U7r6d35h6GH-Ca9freZPg-BsCM"
+            ]
+        ];
+
+        $t = new  PayCaller(M2);
+        $rsp = $t->order('jsapi', $data);
+        $r = $rsp->getBody()->getContents();
+        var_dump($r);
+        $this->assertIsString("");
+    }
+
     public function testNativeOrder()
     {
         $data = [
