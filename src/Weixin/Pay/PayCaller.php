@@ -16,11 +16,13 @@ class PayCaller
 {
     private $signer;
     private $cli;
+    private $conf;
 
     public function __construct($conf)
     {
         $this->signer = Signer::summon($conf['mchid'], $conf['sn'], $conf['private_key_path']);
         $this->cli = HttpCli::summon($this->signer);
+        $this->conf = $conf;
     }
 
     /**
@@ -97,14 +99,16 @@ class PayCaller
         return $this->cli->get("/v3/refund/domestic/refunds/$out_refund_no");
     }
 
-    public function jsApiPaySign($appid, $prepay_id): array
+    public function jsApiPaySign($prepay_id): array
     {
-        $res['appId'] = $appid;
+        $res['appId'] = $this->conf['appid'];
         $res['timeStamp'] = (string)time(); //时间戳
         $res['nonceStr'] = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16); //随机字符串
         $res['signType'] = 'RSA'; //签名算法，暂只支持 RSA
         $res['package'] = 'prepay_id=' . $prepay_id; //统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
-        $res['paySign'] = $this->signer->sha256WithRSA($appid . "\n" . $res['timeStamp'] . "\n" . $res['nonceStr'] . "\n" . $prepay_id . "\n");
+        $res['paySign'] = $this->signer->sha256WithRSA(
+            $res['appId'] . "\n" . $res['timeStamp'] . "\n" . $res['nonceStr'] . "\n" . $prepay_id . "\n"
+        );
         return $res;
     }
 }
