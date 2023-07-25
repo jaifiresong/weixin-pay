@@ -10,7 +10,7 @@ require_once __DIR__ . '/../storage/config.php';
 use PHPUnit\Framework\TestCase;
 use WeixinPay\PayNotify;
 
-class WeixinPayNotify extends TestCase
+class WeixinPayNotifyTest extends TestCase
 {
     public function test()
     {
