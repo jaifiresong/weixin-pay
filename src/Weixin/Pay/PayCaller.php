@@ -107,7 +107,7 @@ class PayCaller
         $res['signType'] = 'RSA'; //签名算法，暂只支持 RSA
         $res['package'] = 'prepay_id=' . $prepay_id; //统一下单接口返回的 prepay_id 参数值，提交格式如：prepay_id=*
         $res['paySign'] = $this->signer->sha256WithRSA(
-            $res['appId'] . "\n" . $res['timeStamp'] . "\n" . $res['nonceStr'] . "\n" . 'prepay_id=' . $prepay_id . "\n"
+            $res['appId'] . "\n" . $res['timeStamp'] . "\n" . $res['nonceStr'] . "\n" . $res['package'] . "\n"
         );
         return $res;
     }
