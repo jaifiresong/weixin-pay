@@ -8,9 +8,10 @@ require_once __DIR__ . '/../storage/config.php';
 
 
 use PHPUnit\Framework\TestCase;
-use WeixinPay\PayNotify;
+use ReqTencent\Weixin\Pay\PayNotify;
 
-class WeixinPayNotifyTest extends TestCase
+
+class PayNotifyTest extends TestCase
 {
     public function test()
     {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace WeixinPay\Support;
+namespace ReqTencent\Weixin\Pay\Support;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;

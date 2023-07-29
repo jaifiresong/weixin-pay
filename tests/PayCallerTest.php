@@ -6,9 +6,10 @@ namespace Test;
 require_once __DIR__ . '/../storage/config.php';
 
 use PHPUnit\Framework\TestCase;
-use WeixinPay\PayCaller;
+use ReqTencent\Weixin\Pay\PayCaller;
 
-class WeixinPayCallerTest extends TestCase
+
+class PayCallerTest extends TestCase
 {
     public function testJsapiOrder()
     {

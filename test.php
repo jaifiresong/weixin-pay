@@ -1,6 +1,7 @@
 <?php
 
-use WeixinPay\PayNotify;
+
+use ReqTencent\Weixin\Pay\PayNotify;
 
 require_once __DIR__ . '/vendor/autoload.php';
 

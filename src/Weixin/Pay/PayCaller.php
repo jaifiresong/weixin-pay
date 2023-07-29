@@ -1,12 +1,12 @@
 <?php
 
 
-namespace WeixinPay;
+namespace ReqTencent\Weixin\Pay;
 
 
 use Psr\Http\Message\ResponseInterface;
-use WeixinPay\Support\HttpCli;
-use WeixinPay\Support\Signer;
+use ReqTencent\Weixin\Pay\Support\HttpCli;
+use ReqTencent\Weixin\Pay\Support\Signer;
 
 /**
  * 产品能力概览

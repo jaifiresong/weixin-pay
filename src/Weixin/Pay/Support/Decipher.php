@@ -1,6 +1,6 @@
 <?php
 
-namespace WeixinPay\Support;
+namespace ReqTencent\Weixin\Pay\Support;
 
 
 class Decipher

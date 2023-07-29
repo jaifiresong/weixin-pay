@@ -1,10 +1,10 @@
 {
-    "name": "call-tencent/weixin-pay",
+    "name": "req-tencent/weixin-pay",
     "description": "微信支付 APIs",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "WeixinPay\\": "src/Weixin/Pay",
+            "ReqTencent\\": "src/",
             "Test\\": "tests/"
         }
     },

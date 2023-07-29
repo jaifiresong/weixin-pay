@@ -71,7 +71,7 @@ class GuzzleTest extends TestCase
             return function (callable $handler) use ($header, $value) {
                 return function (
                     RequestInterface $request,
-                    array $options
+                    array            $options
                 ) use ($handler, $header, $value) {
                     $promise = $handler($request, $options);
                     return $promise->then(
@@ -106,6 +106,7 @@ class GuzzleTest extends TestCase
         }));
 
         $client = new Client(['handler' => $stack]);
+        $this->assertIsString('');
     }
 
     //使用 GuzzleHttp\Middleware::mapResponse() 中间件使得修改响应更加简单。
@@ -119,6 +120,7 @@ class GuzzleTest extends TestCase
         }));
 
         $client = new Client(['handler' => $stack]);
+        $this->assertIsString('');
     }
 
     public function test06()

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace WeixinPay;
+namespace ReqTencent\Weixin\Pay;
 
 
-use WeixinPay\Support\Decipher;
+use ReqTencent\Weixin\Pay\Support\Decipher;
 
 class PayNotify
 {
